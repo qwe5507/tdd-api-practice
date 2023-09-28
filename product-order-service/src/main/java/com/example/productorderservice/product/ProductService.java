@@ -24,14 +24,15 @@ class ProductService {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    public GetProductResponse getProduct(final long productId) {
+    @GetMapping("/{productId}")
+    public ResponseEntity<GetProductResponse> getProduct(@PathVariable final long productId) {
         final Product product = productPort.getProduct(productId);
-
-        return new GetProductResponse(
+        final GetProductResponse response = new GetProductResponse(
                 product.getId(),
                 product.getName(),
                 product.getPrice(),
-                product.getDiscountPolicy()
-        );
+                product.getDiscountPolicy());
+
+        return ResponseEntity.ok(response);
     }
 }

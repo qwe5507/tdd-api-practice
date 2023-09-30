@@ -1,5 +1,6 @@
 package com.example.productorderservice.product;
 
+import com.example.productorderservice.product.domain.DiscountPolicy;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,7 +23,7 @@ class DiscountPolicyTest {
     }
 
     @Test
-    void orverDiscountPolicy() {
+    void overDiscountPolicy() {
         final int price = 500;
         final int discountedPrice = DiscountPolicy.FIX_1000_AMOUNT.applyDiscount(price);
 
